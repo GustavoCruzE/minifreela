@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contato | MiniFreela Palhoça</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Header -->
+  <header class="bg-white shadow-md">
+    <div class="container mx-auto flex justify-between items-center py-4 px-6">
+      <h1 class="text-2xl font-bold text-blue-600">MiniFreela Palhoça</h1>
+      <nav class="space-x-6">
+        <a href="index.html" class="text-gray-700 hover:text-blue-600">Início</a>
+        <a href="vagas.html" class="text-gray-700 hover:text-blue-600">Vagas</a>
+        <a href="empresas.html" class="text-gray-700 hover:text-blue-600">Empresas</a>
+        <a href="contato.html" class="text-blue-600 font-bold">Contato</a>
+        <a href="criar-vaga.html" id="btnCriarVaga" class="text-gray-700 hover:text-blue-600">Criar Vagas</a>
+        <a href="suas-vagas.html" id="btnSuasVagas" class="text-gray-700 hover:text-blue-600">Suas Vagas</a>
+        <button id="abrirCadastro" class="bg-gray-100 text-blue-600 border border-blue-600 px-4 py-2 rounded hover:bg-blue-100">Cadastrar</button>
+        <button id="abrirLogin" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Entrar</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Contato -->
+  <main class="py-12 px-6 container mx-auto max-w-2xl">
+    <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Fale Conosco</h2>
+    <form class="bg-white p-8 rounded-xl shadow-md space-y-4">
+      <input type="text" placeholder="Seu nome" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" required />
+      <input type="email" placeholder="Seu e-mail" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" required />
+      <textarea placeholder="Sua mensagem..." rows="5" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" required></textarea>
+      <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700">Enviar Mensagem</button>
+    </form>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t mt-12">
+    <div class="container mx-auto px-6 py-6 text-center text-gray-600">
+      © 2025 MiniFreela Palhoça — Todos os direitos reservados.
+    </div>
+  </footer>
+
+  <!-- Modal Login -->
+  <div id="modalLogin" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+    <div class="bg-white p-8 rounded-xl shadow-md w-full max-w-md relative">
+      <button id="fecharLogin" class="absolute top-2 right-3 text-gray-500 hover:text-red-600 text-2xl">&times;</button>
+      <h2 class="text-2xl font-bold text-blue-600 text-center mb-6">Login</h2>
+      <form id="loginForm" class="space-y-4">
+        <select id="tipoLogin" class="w-full p-3 border rounded-lg" required>
+          <option value="usuario">Login como Usuário</option>
+          <option value="empresa">Login como Empresa</option>
+        </select>
+        <input id="inputEmailCnpj" type="email" placeholder="E-mail" class="w-full p-3 border rounded-lg" required />
+        <input id="inputSenha" type="password" placeholder="Senha" class="w-full p-3 border rounded-lg" required />
+        <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700">Entrar</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal Cadastro -->
+ <div id="modalCadastro" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+    <div class="bg-white p-8 rounded-xl shadow-md w-full max-w-lg relative">
+      <button id="fecharCadastro" class="absolute top-2 right-3 text-gray-500 hover:text-red-600 text-2xl">&times;</button>
+      <h2 class="text-2xl font-bold text-blue-600 text-center mb-6">Cadastro</h2>
+
+      <form id="cadastroForm" class="space-y-4">
+        <select id="tipoCadastro" class="w-full p-3 border rounded-lg" required>
+          <option value="">Selecione o tipo de cadastro</option>
+          <option value="usuario">Usuário</option>
+          <option value="empresa">Empresa</option>
+        </select>
+
+        <!-- Campos comuns -->
+        <input type="text" id="nomeCadastro" placeholder="Nome completo ou Nome da Empresa" class="w-full p-3 border rounded-lg hidden" required />
+        <input type="password" id="senhaCadastro" placeholder="Senha" class="w-full p-3 border rounded-lg hidden" required />
+        <input type="password" id="confirmarSenhaCadastro" placeholder="Confirmar senha" class="w-full p-3 border rounded-lg hidden" required />
+
+        <!-- Campos para Usuário -->
+        <div id="camposUsuario" class="space-y-4 hidden">
+          <input type="email" id="emailCadastro" placeholder="E-mail" class="w-full p-3 border rounded-lg" required />
+          <input type="text" id="cpfCadastro" placeholder="CPF" class="w-full p-3 border rounded-lg" />
+          <input type="text" id="competenciasCadastro" placeholder="Competências" class="w-full p-3 border rounded-lg" />
+          <input type="date" id="dataNascimentoCadastro" class="w-full p-3 border rounded-lg" />
+          <select id="sexoCadastro" class="w-full p-3 border rounded-lg">
+            <option value="">Selecione o sexo</option>
+            <option value="masculino">Masculino</option>
+            <option value="feminino">Feminino</option>
+          </select>
+        </div>
+
+
+        <!-- Campo para Empresa -->
+        <input type="text" id="cnpjCadastro" placeholder="CNPJ" class="w-full p-3 border rounded-lg hidden" />
+
+        <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700">Cadastrar</button>
+  </form>
+    </div>
+
+  <script src="js/modals.js"></script>
+</body>
+</html>
